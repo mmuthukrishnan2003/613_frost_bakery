@@ -6,17 +6,17 @@ pipeline{
           PORT = "30351"
       } 
       stages {
-              stage('Build Docker Images')
+              stages('Build Docker Images')
                 steps {
                         sh 'docker build -t 613_frost_bakery.image .'
                 }
             }
-      stage('Stop Old Container') {
+      stages('Stop Old Container') {
                 steps {
                         sh 'docker buid -t container_name || ture'
                 }
             }
-          stage('run Container') {
+          stages('run Container') {
                 steps {
                         sh '''
                         docker run -d -p 30351:80 \
