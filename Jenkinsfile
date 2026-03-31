@@ -6,23 +6,24 @@ pipeline{
           PORT = "30351"
       } 
       stages {
-              stages('Build Docker Images')
+              stage('Build Docker Images'){
                 steps {
-                        sh 'docker build -t 613_frost_bakery.image .'
+                        sh "docker build -t ${IMAGE_NAME} ."
                 }
             }
-      stages('Stop Old Container') {
+      stage('Stop Old Container') {
                 steps {
-                        sh 'docker buid -t container_name || ture'
+                        sh "docker buid -t container_name || ture"
                 }
             }
-          stages('run Container') {
+          stage('Run Container') {
                 steps {
-                        sh '''
+                        sh """
                         docker run -d -p 30351:80 \
                         --name 613_frost_bakery \
                         613_frost_bakery.image
-                        '''
+                        """
                   }
               }
           }
+}
