@@ -13,7 +13,7 @@ pipeline{
             }
       stage('Stop Old Container') {
                 steps {
-                        sh "docker buid -t container_name || ture"
+                        sh "docker build -t container_name || true"
                 }
             }
           stage('Run Container') {
