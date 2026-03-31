@@ -8,12 +8,12 @@ pipeline{
       stages {
               stage('Build Docker Images')
                 steps {
-                        sh 'docker buid -t 613_frost_bakery.image .'
+                        sh 'docker build -t 613_frost_bakery.image .'
                 }
             }
       stage('Stop Old Container') {
                 steps {
-                        sh 'docker buid -t 613_frost_bakery.image || ture'
+                        sh 'docker buid -t container_name || ture'
                 }
             }
           stage('run Container') {
